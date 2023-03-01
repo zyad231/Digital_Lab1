@@ -11,16 +11,11 @@ function sample_seq = GenerateSamples(bit_seq,fs)
 
 sample_seq = zeros(size(bit_seq*fs));
 L=length(bit_seq);
-pointer=1;
-counter=0;
+counter=1;
 %%% WRITE YOUR CODE FOR PART 2 HERE
 for i =1:1:L
     num=bit_seq(i);
-    while counter<10
-        sample_seq(pointer)=num;
-        counter=counter+1;
-        pointer=pointer+1;
+    while
     end
-    counter=0;
 end
 %%%
