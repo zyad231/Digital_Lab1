@@ -47,7 +47,7 @@ switch case_type
         %%% WRITE YOUR CODE FOR PART 3 HERE
             L=length(rec_sample_seq);
             for i=1:10:L
-                for j=0:1:9
+                for j=1:1:9
                     rec_sample_seq(i+j)=rec_sample_seq(i);
                 end
                 rec_bit_seq(pointer)=rec_sample_seq(i);
