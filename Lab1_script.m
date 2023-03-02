@@ -126,3 +126,30 @@ legend('Part 1-a','Part 2-a','Part 3-a','fontsize',10)
 
 
 %%% WRITE YOUR CODE HERE
+
+f_vect = 1:1:10;
+BER_case_4_vec  = zeros(size(f_vect));
+
+% Generate a bit sequence
+bit_seq = GenerateBits(N_bits);
+
+for f_ind = 1:length(f_vect)
+    % Generate samples from bits
+    sample_seq = GenerateSamples(bit_seq, f_vect(f_ind));
+    
+    % Pass the sample sequence through the channel
+    rec_sample_seq = BSC(sample_seq, f_vect(f_ind), p);
+    
+    % Decode bits from received bit sequence
+    rec_bit_seq = DecodeBitsFromSamples(rec_sample_seq,'part_2',f_vect(f_ind));
+    
+    % Compute the BER
+    BER_case_4_vec(f_ind) = ComputeBER(bit_seq,rec_bit_seq); 
+end 
+
+figure
+plot(f_vect,BER_case_4_vec);
+xlabel('Values of fs','fontsize',10)
+ylabel('BER','fontsize',10)
+
+%%% End
